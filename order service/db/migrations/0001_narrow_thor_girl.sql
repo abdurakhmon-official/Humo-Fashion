@@ -1,0 +1,1 @@
+ALTER TABLE "cart_line_items" ALTER COLUMN "cart_id" SET DATA TYPE uuid;

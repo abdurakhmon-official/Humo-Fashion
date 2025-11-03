@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+generator zod {
+  provider = "zod-prisma-types"
+  output = "../generated/zod"
+  useMultipleFiles                 = true
+  createInputTypes                 = true
+  createModelTypes                 = true
+  addInputTypeValidation           = true
+  createOptionalDefaultValuesTypes = true
+  createRelationValuesTypes        = false
+  createPartialTypes               = false
+  useDefaultValidators             = true
+  coerceDate                       = true
+  writeNullishInModelTypes         = false
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum USER_ROLE {
+  SUPER_ADMIN
+  ADMIN
+  USER
+}
+
+model Users {
+  id String @id @default(uuid())
+  firstName String?
+  lastName String?
+  username String @unique
+  email String @unique
+  phone String?
+  password String
+  profileImage String?
+  role USER_ROLE @default(USER)
+  deleted Boolean @default(false)
+
+  createdAt DateTime?
+  updatedAt DateTime?
+  deletedAt DateTime?
+
+  @@map("users")
+}

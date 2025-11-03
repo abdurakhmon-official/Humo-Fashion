@@ -1,0 +1,8 @@
+// WARNING: Do not change this file manually. Use yarn generate:types from the catalog service project to update it
+
+ export type UpdateProductInput = {
+    name?: string | undefined;
+    description?: string | undefined;
+    price?: number | undefined;
+    stock?: number | undefined;
+};

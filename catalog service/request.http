@@ -1,0 +1,9 @@
+POST http://localhost:9100/api/products
+Content-Type: application/json
+
+{
+  "name": "MacBook Pro",
+  "description": "A high-performance laptop for professionals",
+  "stock": 50,
+  "price": 2400
+}

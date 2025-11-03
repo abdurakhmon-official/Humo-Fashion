@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"name": "broker",
+			"path": "broker"
+		},
+		{
+			"name": "db",
+			"path": "db"
+		},
+		{
+			"name": "catalog service",
+			"path": "catalog service"
+		},
+		{
+			"name": "order service",
+			"path": "order service"
+		},
+		{
+			"name": "payment service",
+			"path": "payment service"
+		},
+		{
+			"name": "user service",
+			"path": "user service"
+		},
+		{
+			"name": "ui-store",
+			"path": "ui-store"
+		},
+		{
+			"name": "like service",
+			"path": "like service"
+		},
+	],
+	"settings": {}
+}

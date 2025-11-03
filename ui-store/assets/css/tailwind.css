@@ -1,0 +1,61 @@
+/* Template Name: Cartzio - Fashion Store eCommerce Tailwind CSS Landing Template
+   Author: Shreethemes
+   Email: support@shreethemes.in
+   Website: https://shreethemes.in
+   Version: 1.2.0
+   Created: March 2023
+   File: Main Css File
+*/
+
+/* Font Family */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+/* Tailwind CSS */
+@import "tailwindcss";
+
+/* Dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Theme */
+@theme {
+   /* Font Family */
+   --font-dmsans: "DM Sans", "serif";
+
+   /* Breakpoints */
+   --breakpoint-xs: 540px;
+   --breakpoint-sm: 640px;
+   --breakpoint-md: 720px;
+   --breakpoint-lg: 960px;
+   --breakpoint-lg_992: 992px;
+   --breakpoint-xl: 1140px;
+   --breakpoint-2xl: 1140px;
+
+   /* Colors */
+   --color-primary: #ff6900;
+   --color-primary-50: #fff7ed;
+   --color-primary-100: #ffedd4;
+   --color-primary-200: #ffd7a8;
+   --color-primary-300: #ffb86a;
+   --color-primary-400: #ff8904;
+   --color-primary-500: #ff6900;
+   --color-primary-600: #f54a00;
+   --color-primary-700: #ca3500;
+   --color-primary-800: #9f2d00;
+   --color-primary-900: #7e2a0c;
+   --color-primary-950: #441306;
+
+   /* Font Sizes */
+   --text-base: 16px;
+   --text-base--line-height: 28px;
+   --text-lg: 18px;
+   --text-lg--line-height: 28px;
+}
+
+/* Custom */
+@import "./custom/_general.css";
+@import "./custom/pages/_helper.css";
+@import "./custom/pages/_countdown.css";
+@import "./custom/pages/_swiper-slider.css";
+@import "./custom/pages/_contact.css";
+@import "./custom/pages/_testi.css";
+@import "./custom/structure/_topnav.css";

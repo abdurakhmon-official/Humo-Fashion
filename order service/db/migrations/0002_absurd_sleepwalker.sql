@@ -1,0 +1,1 @@
+ALTER TABLE "order_line_items" ALTER COLUMN "order_id" SET DATA TYPE uuid;

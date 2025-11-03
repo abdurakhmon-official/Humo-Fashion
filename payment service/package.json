@@ -1,0 +1,50 @@
+{
+  "name": "payment-service",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "author": "Abudrakhmon",
+  "license": "MIT",
+  "scripts": {
+    "barrels": "barrelsby --config .barrelsby.json",
+    "dev": "yarn barrels && cross-env STAGE=local nodemon --exec ts-node index.ts",
+    "build": "tsc -p"
+  },
+  "dependencies": {
+    "@tsed/common": "^8.17.3",
+    "@tsed/di": "^8.17.3",
+    "@tsed/platform-express": "^8.17.3",
+    "@tsed/schema": "^8.17.3",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.7.1",
+    "axios": "^1.12.2",
+    "compression": "^1.8.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-bearer-token": "^3.0.0",
+    "helmet": "^8.1.0",
+    "hpp": "^0.2.3",
+    "kafkajs": "^2.2.4",
+    "lodash.merge": "^4.6.2",
+    "pino": "^10.0.0",
+    "pino-http": "^11.0.0",
+    "pino-pretty": "^13.1.1",
+    "reflect-metadata": "^0.2.2",
+    "stripe": "^19.1.0",
+    "tsx": "^4.20.6",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/hpp": "^0.2.6",
+    "@types/lodash.merge": "^4.6.9",
+    "barrelsby": "^2.8.1",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

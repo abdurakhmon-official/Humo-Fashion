@@ -1,0 +1,17 @@
+POST  http://localhost:9101/cart
+
+Content-Type: "application/json"
+
+{
+    "item": "smart phone",
+    "price": 1200
+}
+
+POST http://localhost:9101/api/cart
+
+Content-Type: "application/json"
+
+{
+    "productId": "6bd2ef53-e8c9-4140-9564-798fbfa3456d",
+    "quantity": 12
+}

@@ -1,0 +1,5 @@
+export enum SendEmailType {
+  FORGOT_PASSWORD = "FORGOT_PASSWORD",
+  WELCOME = "WELCOME",
+  ORDER_CREATED = "ORDER_CREATED",
+}

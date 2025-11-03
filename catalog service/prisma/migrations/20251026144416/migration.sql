@@ -1,0 +1,5 @@
+-- CreateEnum
+CREATE TYPE "PRODUCT_COLORS" AS ENUM ('RED', 'GREEN', 'BLACK', 'GRAY', 'BLUE', 'PURPLE');
+
+-- AlterTable
+ALTER TABLE "Product" ADD COLUMN     "color" "PRODUCT_COLORS";

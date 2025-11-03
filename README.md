@@ -29,7 +29,8 @@
 ```
 
 🧰 Tech Stack
-Backend:
+
+BACKEND:
 
   Runtime: Node.js with TypeScript 
   
@@ -49,7 +50,7 @@ Backend:
 
   
 
-Frontend:
+FRONTEND:
 
   Framework: Nuxt 3 (Vue 3) 
   
@@ -60,7 +61,7 @@ Frontend:
   HTTP Client: Axios 
   
 
-Infrastructure:
+INSFRASTUCTURE:
 
   Containerization: Docker & Docker Compose 
   
@@ -71,7 +72,8 @@ Infrastructure:
   
   
 
-🚀 Getting Started
+🚀 GETTING STARTED
+
 Prerequisites
 
 Node.js (v18 or higher) 
@@ -81,7 +83,7 @@ Yarn package manager
 Docker & Docker Compose 
 
 
-Installation
+INSTALLATION
 1. Clone the repository 
 ```bash 
 git clone https://github.com/yourusername/humo-fashion.git

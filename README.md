@@ -30,33 +30,33 @@
 
 🧰 Tech Stack
 Backend:
-  Runtime: Node.js with TypeScript
-  Framework: Ts.ED
-  Database: PostgreSQL (Dockerized)
-  ORMs: Prisma & Drizzle ORM
-  Message Broker: Apache Kafka (Event-driven communication)
-  Payment Gateway: Stripe API
-  File Storage: AWS S3
-  Validation: Zod
+  Runtime: Node.js with TypeScript ||
+  Framework: Ts.ED ||
+  Database: PostgreSQL (Dockerized) ||
+  ORMs: Prisma & Drizzle ORM ||
+  Message Broker: Apache Kafka (Event-driven communication) ||
+  Payment Gateway: Stripe API ||
+  File Storage: AWS S3 ||
+  Validation: Zod ||
 
 Frontend:
-  Framework: Nuxt 3 (Vue 3)
-  Styling: Tailwind CSS
-  State Management: Pinia
-  HTTP Client: Axios
+  Framework: Nuxt 3 (Vue 3) ||
+  Styling: Tailwind CSS ||
+  State Management: Pinia ||
+  HTTP Client: Axios ||
 
 Infrastructure:
-  Containerization: Docker & Docker Compose
-  Message Queue: Apache Kafka + Zookeeper
-  Configuration: Environment variables via .env
+  Containerization: Docker & Docker Compose ||
+  Message Queue: Apache Kafka + Zookeeper ||
+  Configuration: Environment variables via .env ||
   
 
 🚀 Getting Started
 Prerequisites
 
-Node.js (v18 or higher)
-Yarn package manager
-Docker & Docker Compose
+Node.js (v18 or higher) ||
+Yarn package manager || 
+Docker & Docker Compose ||
 
 Installation
 1. Clone the repository 

@@ -6,72 +6,65 @@
                     <div class="p-6 rounded-md shadow dark:shadow-gray-800">
                         <h3 class="text-xl leading-normal font-semibold">Billing address</h3>
 
-                        <form>
+                        <form @submit.prevent="handleSubmit">
                             <div class="grid lg:grid-cols-12 grid-cols-1 mt-6 gap-5">
                                 <div class="lg:col-span-6">
                                     <label class="form-label font-semibold">First Name : <span
                                             class="text-red-600">*</span></label>
-                                    <input type="text"
+                                    <input type="text" v-model="billingInfo.firstName"
                                         class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                                        placeholder="First Name:" id="firstname" name="name" required>
+                                        placeholder="First Name:" required>
                                 </div>
 
                                 <div class="lg:col-span-6">
                                     <label class="form-label font-semibold">Last Name : <span
                                             class="text-red-600">*</span></label>
-                                    <input type="text"
+                                    <input type="text" v-model="billingInfo.lastName"
                                         class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                                        placeholder="Last Name:" id="lastname" name="name" required>
+                                        placeholder="Last Name:" required>
                                 </div>
 
                                 <div class="lg:col-span-6">
                                     <label class="form-label font-semibold">Username</label>
                                     <div class="relative mt-2">
                                         <span
-                                            class="absolute top-0.5 start-0.5 w-9 h-9 text-xl bg-gray-100 dark:bg-slate-800 inline-flex justify-center items-center text-dark dark:text-white rounded"
-                                            id="basic-addon1"><i class="mdi mdi-at"></i></span>
-                                        <input type="text"
+                                            class="absolute top-0.5 start-0.5 w-9 h-9 text-xl bg-gray-100 dark:bg-slate-800 inline-flex justify-center items-center text-dark dark:text-white rounded">
+                                            <i class="mdi mdi-at"></i>
+                                        </span>
+                                        <input type="text" v-model="billingInfo.username"
                                             class="ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
-                                            placeholder="Username" required>
+                                            placeholder="Username">
                                     </div>
                                 </div>
 
                                 <div class="lg:col-span-6">
                                     <label class="form-label font-semibold">Your Email : <span
                                             class="text-red-600">*</span></label>
-                                    <input type="email"
+                                    <input type="email" v-model="billingInfo.email"
                                         class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                                        placeholder="Email" name="email" required>
+                                        placeholder="Email" required>
                                 </div>
 
                                 <div class="lg:col-span-12">
                                     <label class="form-label font-semibold">Address : <span
                                             class="text-red-600">*</span></label>
-                                    <input type="text"
+                                    <input type="text" v-model="billingInfo.address"
                                         class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                                        placeholder="Address:" id="address" name="name" required>
-                                </div>
-
-                                <div class="lg:col-span-12">
-                                    <label class="form-label font-semibold">Address 2 : </label>
-                                    <input type="text"
-                                        class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                                        placeholder="Address:" id="address" name="name" required>
+                                        placeholder="Address:" required>
                                 </div>
 
                                 <div class="lg:col-span-4">
                                     <label class="font-semibold">Country:</label>
-                                    <select
+                                    <select v-model="billingInfo.country"
                                         class="form-select form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
                                         <option value="USA">USA</option>
                                         <option value="CAD">Canada</option>
-                                        <option value="CHINA">China</option>
                                     </select>
                                 </div>
 
                                 <div class="lg:col-span-4">
                                     <label class="font-semibold">State:</label>
-                                    <select
+                                    <select v-model="billingInfo.state"
                                         class="form-select form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
                                         <option value="CAL">California</option>
                                         <option value="TEX">Texas</option>
@@ -82,131 +75,73 @@
                                 <div class="lg:col-span-4">
                                     <label class="form-label font-semibold">Zip Code : <span
                                             class="text-red-600">*</span></label>
-                                    <input type="number"
+                                    <input type="text" v-model="billingInfo.zipCode"
                                         class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                                        placeholder="Zip:" id="zipcode" name="number" required>
-                                </div>
-
-                                <div class="lg:col-span-12">
-                                    <div class="flex items-center w-full mb-0">
-                                        <input
-                                            class="form-checkbox size-4 appearance-none rounded border border-gray-200 dark:border-gray-800 accent-primary checked:appearance-auto dark:accent-primary focus:border-primary-300 focus:ring focus:ring-offset-0 focus:ring-primary-200 focus:ring-opacity-50 me-2"
-                                            type="checkbox" value="" id="sameaddress">
-                                        <label class="form-check-label text-slate-400" for="sameaddress">Shipping
-                                            address is the same as my billing address</label>
-                                    </div>
-
-                                    <div class="flex items-center w-full mb-0">
-                                        <input
-                                            class="form-checkbox size-4 appearance-none rounded border border-gray-200 dark:border-gray-800 accent-primary checked:appearance-auto dark:accent-primary focus:border-primary-300 focus:ring focus:ring-offset-0 focus:ring-primary-200 focus:ring-opacity-50 me-2"
-                                            type="checkbox" value="" id="savenexttime">
-                                        <label class="form-check-label text-slate-400" for="savenexttime">Save this
-                                            information for next time</label>
-                                    </div>
+                                        placeholder="Zip:" required>
                                 </div>
                             </div>
-                        </form>
 
-                        <h3 class="text-xl leading-normal font-semibold mt-6">Payment</h3>
+                            <h3 class="text-xl leading-normal font-semibold mt-6">Payment</h3>
 
-                        <form>
                             <div class="grid lg:grid-cols-12 grid-cols-1 mt-6 gap-5">
                                 <div class="lg:col-span-12">
                                     <div class="block">
-                                        <div>
-                                            <label class="inline-flex items-center">
-                                                <input type="radio"
-                                                    class="form-radio border-gray-100 dark:border-gray-800 text-primary focus:border-primary-300 focus:ring focus:ring-offset-0 focus:ring-primary-200 focus:ring-opacity-50 me-2"
-                                                    name="radio-colors" value="1" checked>
-                                                <span class="text-slate-400">Credit card</span>
-                                            </label>
-                                        </div>
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" v-model="paymentMethod" value="card"
+                                                class="form-radio border-gray-100 dark:border-gray-800 text-primary focus:border-primary-300 focus:ring focus:ring-offset-0 focus:ring-primary-200 focus:ring-opacity-50 me-2">
+                                            <span class="text-slate-400">Credit/Debit Card</span>
+                                        </label>
                                     </div>
 
                                     <div class="block mt-2">
-                                        <div>
-                                            <label class="inline-flex items-center">
-                                                <input type="radio"
-                                                    class="form-radio border-gray-100 dark:border-gray-800 text-primary focus:border-primary-300 focus:ring focus:ring-offset-0 focus:ring-primary-200 focus:ring-opacity-50 me-2"
-                                                    name="radio-colors" value="1">
-                                                <span class="text-slate-400">Debit Card</span>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="block mt-2">
-                                        <div>
-                                            <label class="inline-flex items-center">
-                                                <input type="radio"
-                                                    class="form-radio border-gray-100 dark:border-gray-800 text-primary focus:border-primary-300 focus:ring focus:ring-offset-0 focus:ring-primary-200 focus:ring-opacity-50 me-2"
-                                                    name="radio-colors" value="1">
-                                                <span class="text-slate-400">PayPal</span>
-                                            </label>
-                                        </div>
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" v-model="paymentMethod" value="cash"
+                                                class="form-radio border-gray-100 dark:border-gray-800 text-primary focus:border-primary-300 focus:ring focus:ring-offset-0 focus:ring-primary-200 focus:ring-opacity-50 me-2">
+                                            <span class="text-slate-400">Cash</span>
+                                        </label>
                                     </div>
                                 </div>
 
-                                <div class="lg:col-span-6">
-                                    <label class="form-label font-semibold">Account Holder Name : <span
-                                            class="text-red-600">*</span></label>
-                                    <input type="text"
-                                        class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                                        placeholder="Name:" id="accountname" name="name" required>
-                                </div>
+                                <template v-if="paymentMethod === 'card'">
+                                    <div class="lg:col-span-12">
+                                        <div id="card-element"
+                                            class="w-full py-3 px-3 bg-transparent dark:bg-slate-900 rounded border border-gray-100 dark:border-gray-800">
+                                        </div>
+                                        <div id="card-errors" class="text-red-600 text-sm mt-2"></div>
+                                    </div>
+                                </template>
+                            </div>
 
-                                <div class="lg:col-span-6">
-                                    <label class="form-label font-semibold">Credit card number : <span
-                                            class="text-red-600">*</span></label>
-                                    <input type="number"
-                                        class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                                        placeholder="**** **** **** ****" id="cardnumber" name="number" required>
-                                </div>
-
-                                <div class="lg:col-span-3">
-                                    <label class="form-label font-semibold">Expiration : <span
-                                            class="text-red-600">*</span></label>
-                                    <input type="number"
-                                        class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                                        placeholder="" id="expiration" name="number" required>
-                                </div>
-
-                                <div class="lg:col-span-3">
-                                    <label class="form-label font-semibold">CVV : <span
-                                            class="text-red-600">*</span></label>
-                                    <input type="number"
-                                        class="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                                        placeholder="" id="cvv" name="number" required>
-                                </div>
+                            <div class="mt-4">
+                                <button type="submit" :disabled="loading"
+                                    class="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-primary text-white rounded-md w-full disabled:opacity-50">
+                                    {{ loading ? 'Processing...' : 'Complete Order' }}
+                                </button>
                             </div>
                         </form>
-                        <div class="mt-4">
-                            <input type="submit"
-                                class="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-primary text-white rounded-md w-full"
-                                value="Continue to checkout">
-                        </div>
                     </div>
-
                 </div>
 
                 <div class="lg:col-span-4">
                     <div class="p-6 rounded-md shadow dark:shadow-gray-800">
                         <div class="flex justify-between items-center">
                             <h5 class="text-lg font-semibold">Your Cart</h5>
-
                             <NuxtLink
                                 class="bg-primary flex justify-center items-center text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full h-5">
-                                {{ totalItems }}</NuxtLink>
+                                {{ totalItems }}
+                            </NuxtLink>
                         </div>
 
                         <div class="mt-4 rounded-md shadow dark:shadow-gray-800">
                             <div v-for="(item, index) in cart.items" :key="index">
-                                <NuxtLink :to="`/product/${item.productId}`" class="p-3 flex justify-between items-center">
+                                <NuxtLink :to="`/product/${item.productId}`"
+                                    class="p-3 flex justify-between items-center">
                                     <div>
                                         <h5 class="font-semibold">{{ item.itemName }}</h5>
-                                        <p class="text-sm text-slate-400">{{ item.itemName }}</p>
+                                        <p class="text-sm text-slate-400">Qty: {{ item.quantity }}</p>
                                     </div>
-
-                                    <p class="text-slate-400 font-semibold">{{ item.price }} $</p>
+                                    <p class="text-slate-400 font-semibold">${{ (item.price * item.quantity /
+                                        100).toFixed(2) }}</p>
                                 </NuxtLink>
                             </div>
                             <div
@@ -214,19 +149,8 @@
                                 <div>
                                     <h5 class="font-semibold">Total (USD)</h5>
                                 </div>
-
-                                <p class="font-semibold">$ {{ totalPrice }}</p>
+                                <p class="font-semibold">${{ (totalPrice / 100).toFixed(2) }}</p>
                             </div>
-                        </div>
-
-                        <div class="subcribe-form mt-6">
-                            <form class="relative max-w-xl">
-                                <input type="email" id="subcribe" name="email"
-                                    class="py-4 pe-40 ps-6 w-full h-[50px] outline-none text-black dark:text-white rounded-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800"
-                                    placeholder="Promo code">
-                                <button type="submit"
-                                    class="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center absolute top-[2px] end-[3px] h-[46px] bg-primary text-white rounded-full">Redeem</button>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -236,9 +160,126 @@
 </template>
 
 <script setup lang="ts">
+import { loadStripe, type Stripe, type StripeElements } from '@stripe/stripe-js'
+import { useService } from '~/composable/userServices'
 
+const config = useRuntimeConfig()
 const cart = useCart()
 
-const {totalItems, totalPrice} = storeToRefs(cart)
+const {$toast} = useNuxtApp()
+const router = useRouter()
+const services = useService()
+
+const loading = ref(false)
+const paymentMethod = ref('card')
+
+const billingInfo = ref({
+    firstName: '',
+    lastName: '',
+    username: '',
+    email: '',
+    address: '',
+    country: 'USA',
+    state: 'CAL',
+    zipCode: ''
+})
+
+const stripeKey = config.public.stripePublishableKey
+
+const { totalItems, totalPrice } = storeToRefs(cart)
+
+let stripe: Stripe | null = null
+let elements: StripeElements | null = null
+let cardElement: any = null
+
+onMounted(async () => {
+    stripe = await loadStripe(stripeKey)
+    if (stripe) {
+        elements = stripe.elements()
+        cardElement = elements.create('card', {
+            style: {
+                base: {
+                    fontSize: '16px',
+                    color: '#32325d'
+                }
+            }
+        })
+        cardElement.mount('#card-element')
+
+        cardElement.on('change', (event: any) => {
+            const displayError = document.getElementById('card-errors')
+            if (displayError) {
+                displayError.textContent = event.error ? event.error.message : ''
+            }
+        })
+    }
+})
+
+const handleSubmit = async () => {
+    if (cart.isEmpty) {
+        $toast.error('Your cart is empty!')
+        return
+    }
+
+    loading.value = true
+
+    try {
+        const orderResponse = await services.$order.createOrder()
+
+        if (!orderResponse) {
+            throw new Error('Failed to create order')
+        }
+
+        const { orderNumber } = orderResponse.data
+
+        const paymentResponse = await services.$payment.createPayment(orderNumber)
+
+        if (!paymentResponse.data.secret) {
+            throw new Error('Failed to initialize payment')
+        }
+
+        if (paymentMethod.value === 'card' && stripe && cardElement) {
+            const { error, paymentIntent } = await stripe.confirmCardPayment(paymentResponse.data.secret, {
+                payment_method: {
+                    card: cardElement,
+                    billing_details: {
+                        name: `${billingInfo.value.firstName} ${billingInfo.value.lastName}`,
+                        email: billingInfo.value.email,
+                        address: {
+                            line1: billingInfo.value.address,
+                            state: billingInfo.value.state,
+                            postal_code: billingInfo.value.zipCode,
+                            country: billingInfo.value.country
+                        }
+                    }
+                }
+            })
+
+            if (error) {
+                throw new Error(error.message)
+            }
+
+            // verify payment
+            if (paymentIntent && paymentIntent.id) {
+                await services.$payment.verifyPayment(paymentIntent.id)
+                router.push(`/order-success?orderNumber=${orderNumber}`)
+                $toast.success('Payment successful!')
+
+            }
+        } else if (paymentMethod.value === 'cash') {
+            await services.$payment.markCashPayment(orderNumber)
+            router.push(`/order-success?orderNumber=${orderNumber}`)
+            $toast.success("Order placed! Pay with cash on delivery.")
+        }   
+
+        await cart.loadCart()
+
+
+    } catch (error: any) {
+        $toast.error(error.message || 'Payment failed')
+    } finally {
+        loading.value = false
+    }
+}
 
 </script>

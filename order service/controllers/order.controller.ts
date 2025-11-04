@@ -21,6 +21,12 @@ export class OrderController {
         return await this.orderService.getOrders()
     }
 
+    @Get('/by-number/:orderNumber')
+    @Authorized(Authenticate())
+    async getByOrderNumber(@PathParams('orderNumber') orderNumber: string) {
+        return await this.orderService.getOrderByNumber(orderNumber)
+    }
+
     @Get('/:id')
     @Authorized(Authenticate())
     async getById(@PathParams('id') id: string) {

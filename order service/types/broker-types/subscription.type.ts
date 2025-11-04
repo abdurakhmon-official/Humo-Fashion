@@ -3,10 +3,21 @@ export enum OrderEvent {
     CANCEL_ORDER = 'cancel_order'
 }
 
-export type TOPIC_TYPE = 'OrderEvents' | "CatalogEvents"
+export enum PaymentEvent {
+    UPDATE_PAYMENT = 'update_payment'
+}
+
+export enum OrderStatus {
+    PENDING = 'PENDING',
+    COMPLETED = 'COMPLETED',
+    CANCELLED = 'CANCELLED',
+    FAILED = 'FAILED'
+}
+
+export type TOPIC_TYPE = 'OrderEvents' | "CatalogEvents" | 'PaymentEvents'
 
 export interface MessageType {
     headers?: Record<string, any>
-    event: OrderEvent
+    event: OrderEvent | PaymentEvent
     data: Record<string, any>
 }

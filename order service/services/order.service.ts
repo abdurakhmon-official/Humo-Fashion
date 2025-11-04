@@ -84,6 +84,17 @@ export default class OrderService {
     return order;
   }
 
+  async getOrderByNumber(orderNumber: string) {
+    const order = await this.orderRepo.findOrderByOrderNumber(orderNumber)
+    if (!order) throw new Error('Order not found')
+
+    if (order.customerId !== this.user?.id as unknown as string) {
+      throw new Error('Unauthorized')
+    }
+
+    return order
+  }
+
   async getOrders() {
     const orders = await this.orderRepo.findOrderByCustomerId(this.user?.id as unknown as string);
     if (!Array.isArray(orders)) throw new Error("Orders not found");

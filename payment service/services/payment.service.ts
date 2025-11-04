@@ -25,7 +25,6 @@ export class PaymentService {
     }
 
     async createPayment(orderNumber: string) {
-        // get order details from order service
         const order = await GetProductDetails(orderNumber)
         if (order.customerId !== this.user?.id as unknown as string) {
             throw new Error('user not authorised to create payment')
@@ -68,5 +67,29 @@ export class PaymentService {
             paymentLog: paymentResponse.paymentLog
         }
         
+    }
+
+    async markCashPayment(orderNumber: string) {
+        const order = await GetProductDetails(orderNumber)
+
+        if (order.customerId !== this.user?.id as string) {
+            throw new Error('Not authorized to complete this cash payment')
+        }
+
+        await this.brokerService.sendPaymentUpdateMessage({
+            orderNumber: order.orderNumber,
+            status: 'PENDING',
+            paymentLog: {
+                paidWith: 'cash',
+                date: new Date().toISOString(),
+                amount: order.amount
+            }
+        })
+
+        return {
+            message: "Cash payment accepted. Deliver after receiving cash.",
+            orderNumber,
+            status: 'PENDING'
+        }
     }
 }

@@ -1321,6 +1321,11 @@
   resolved "https://registry.yarnpkg.com/@speed-highlight/core/-/core-1.2.7.tgz#eeaa7c1e7198559abbb98e4acbc93d108d35f2d3"
   integrity sha512-0dxmVj4gxg3Jg879kvFS/msl4s9F3T9UXC1InxgOf7t5NvcPD97u/WTA5vL/IxWHMn7qSxBozqrnnE2wvl1m8g==
 
+"@stripe/stripe-js@^8.3.0":
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-8.3.0.tgz#80c173b03fe3cce51c502c3c0652010b45e6cff4"
+  integrity sha512-hmC3u0anySPI+As+wFGrKG38pXnXAUqyiitnYeYknEOslcDM96AkBdMNxKYOopecuP/v1HMbclUEq8/DKKn+6w==
+
 "@tailwindcss/node@4.1.14":
   version "4.1.14"
   resolved "https://registry.yarnpkg.com/@tailwindcss/node/-/node-4.1.14.tgz#cf3864490c746db6b06b46aa235df9021a289bad"

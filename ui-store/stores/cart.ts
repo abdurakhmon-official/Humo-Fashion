@@ -29,7 +29,7 @@ export const useCart = defineStore('cart', {
 
       try {
         const services = useService()
-        const response = await services.$order.getCart()
+        const response = await services.$cart.getCart()
         if (response.success) {
           this.cart = response.data as unknown as CartWithLineItemsInput
         } else {
@@ -58,7 +58,7 @@ export const useCart = defineStore('cart', {
 
       this.loading = true
       try {
-        const { success, data } = await services.$order.createCart(input)
+        const { success, data } = await services.$cart.createCart(input)
         if (success) {
           await this.loadCart()
           return success
@@ -80,7 +80,7 @@ export const useCart = defineStore('cart', {
       this.loading = true
 
       try {
-        const {success} = await services.$order.removeFromCart(lineItemId)
+        const {success} = await services.$cart.removeFromCart(lineItemId)
         if (success) {
           await this.loadCart()
           $toast.success('Item removed from cart!')

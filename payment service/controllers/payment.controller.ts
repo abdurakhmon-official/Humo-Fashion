@@ -21,4 +21,10 @@ export class PaymentController {
     async verifyPayment(@PathParams('id') id: string) {
         return await this.paymentService.verifyPayment(id)
     }
+
+    @Post('/cash-payment')
+    @Authorized(Authenticate())
+    async markCashPayment(@BodyParams('orderNumber') orderNumber: string) {
+        return await this.paymentService.markCashPayment(orderNumber)
+    }
 }

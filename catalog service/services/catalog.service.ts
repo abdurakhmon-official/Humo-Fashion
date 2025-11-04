@@ -90,12 +90,6 @@ export class CatalogService {
     return response;
   }
 
-  async getProducts(limit: number, offset: number) {
-    const products = await this._repository.find(limit, offset);
-    console.log('products', products)
-    return products;
-  }
-
   async getProduct(id: string) {
     const product = await this._repository.findOne(id);
     return product;
@@ -107,6 +101,14 @@ export class CatalogService {
       throw new Error("unable to find product stock details");
     }
     return products;
+  }
+
+  async getProducts(ids: string[]) {
+    const products = await this._repository.findProducts(ids)
+    if (!products) {
+      throw new Error('unable to find product details')
+    }
+    return products
   }
 
   async deleteProduct(id: string) {

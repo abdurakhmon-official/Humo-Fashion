@@ -33,3 +33,13 @@ export interface GridParams {
   },
   options?: Record<string, any>
 }
+
+export interface orderedProducts {
+  id: string,
+  name: string,
+  price: number,
+  files: {
+    name: string,
+    url: string
+  }[]
+}

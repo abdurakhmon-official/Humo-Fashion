@@ -27,6 +27,11 @@ export class ProductController {
     return await this.catalogService.createProductWithFile(file);
   }
 
+  @Post("/get-products")
+  async getProducts(@BodyParams() ids: string[]) {
+    return await this.catalogService.getProducts(ids);
+  }
+
   @Patch("/:id")
   async update(@PathParams("id") id: string, @BodyParams() data: UpdateProductInput) {
     return await this.catalogService.updateProduct(id, data);
@@ -64,13 +69,13 @@ export class ProductController {
   async brand(@PathParams("id") id: string, @QueryParams() query: BasicSearch) {
     return await this.catalogService.brand(id, query);
   }
-  
+
   @Get("/:id")
   async getProduct(@PathParams("id") id: string) {
-    console.log('id', id)
+    console.log("id", id);
     const res = await this.catalogService.getProduct(id);
-    console.log('res', res)
-    return res
+    console.log("res", res);
+    return res;
   }
 
   @Post("/:id/rate")

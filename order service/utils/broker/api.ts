@@ -7,6 +7,7 @@ import {Unauthorized} from '@tsed/exceptions'
 
 const AUTH_SERVICE_BASE_URL = process.env.AUTH_SERVICE_BASE_URL || 'http://localhost:9102'
 const CATALOG_SERVICE_BASE_URL = process.env.CATALOG_SERVICE_BASE_URL || 'http://localhost:9100'
+const PAYMENT_SERVICE_BASE_URL = process.env.CATALOG_SERVICE_BASE_URL || 'http://localhost:9104'
 
 export const ValidateUser = async (token: string) => {
     try {

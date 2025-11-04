@@ -2,33 +2,34 @@ import type { CartLineItemInput } from "~/types/order-input/CartLineItemInput";
 import { BaseService } from "./base.service";
 import type { CartWithLineItemsInput } from "~/types/order-input/CartWithLineItemsInput";
 import type { CreateCartInput } from "~/types/order-input/CreateCartInput";
+import type { OrderWithLineItemsInput } from "~/types/order-input/OrderWithLineItemsInput";
 
 export class OrderService extends BaseService<any> {
-    protected override BASE_PATH: string = 'cart'
+    protected override BASE_PATH: string = 'orders'
 
     constructor() {
         const { $orderApi } = useNuxtApp()
         super($orderApi)
     }
 
-    async getCart() {
-        return await this.sendGet("/");
-    }
-
-    async createCart(input: CreateCartInput) {
+    async createOrder() {
         return await this.sendPost<{
-            success: boolean,
-            data: string
-        }>('/', input)
+            message: string,
+            orderNumber: string
+        }>('/', {})
     }
 
-    async updateCart(lineItemId: string, quantity: number) {
-        return await this.sendPatch(`/${lineItemId}`, {quantity})
+    async getOrders() {
+        return await this.sendGet<any[]>('/')
     }
 
-    async removeFromCart(lineItemId: string) {
-        return await this.sendDelete<{
-            success: boolean
-        }>(`/${lineItemId}`)
+    async getOrder(orderId: string) {
+        return await this.sendGet<any>(`/${orderId}`)
+    }
+
+    async getOrderByNumber(orderNumber: string) {
+        return await this.sendGet<{
+            order: OrderWithLineItemsInput
+        }>(`/by-number/${orderNumber}`)
     }
 }

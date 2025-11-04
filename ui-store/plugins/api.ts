@@ -26,6 +26,13 @@ export default defineNuxtPlugin((nuxtApp) => {
         }
     })
 
+    const paymentApi: AxiosInstance = axios.create({
+        baseURL: `${config.public.basePaymentApiUrl}${config.public.apiBase}`,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
     const socialApi: AxiosInstance = axios.create({
         baseURL: `${config.public.baseSocialApiUrl}${config.public.apiBase}`,
         headers: {
@@ -67,13 +74,15 @@ export default defineNuxtPlugin((nuxtApp) => {
     addInterceptors(orderApi)
     addInterceptors(userApi)
     addInterceptors(socialApi)
+    addInterceptors(paymentApi)
 
     return {
         provide: {
             catalogApi,
             orderApi,
             userApi,
-            socialApi
+            socialApi,
+            paymentApi
         }
     }
 })

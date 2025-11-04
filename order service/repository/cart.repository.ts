@@ -66,7 +66,7 @@ export class CartRepository {
     }
 
     async clearCartData(id: string): Promise<boolean> {
-        const res = await DB.delete(carts).where(eq(carts.customerId, id)).returning()
+        await DB.delete(carts).where(eq(carts.customerId, id)).returning()
         return true
     }
 

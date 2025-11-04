@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.11.2",
+    "@stripe/stripe-js": "^8.3.0",
     "@tailwindcss/vite": "^4.1.13",
     "axios": "^1.12.2",
     "feather-icons": "^4.29.2",

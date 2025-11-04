@@ -149,6 +149,31 @@ export class CatalogRepository {
     return products.map((p) => ({ id: p.id, name: p.name, stock: p.stock }));
   }
 
+  async findProducts(ids: string[]) {
+    const products = await prisma.product.findMany({
+      where: { id: { in: ids } },
+      include: {
+        files: {
+          select: {
+            file: true,
+            name: true
+          }
+        }
+      }
+    })
+
+
+    return products.map((p) => ({
+      id: p.id,
+      name: p.name,
+      price: p.price,
+      files: p.files.map((f) => ({
+        name: f.name,
+        url: f.file
+      }))
+    }))
+  }
+
   async list(): Promise<{ success: boolean; data: Product[] }> {
     const products = await prisma.product.findMany({
       where: { deleted: false },
